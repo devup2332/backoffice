@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  uriSignIn: 'https://stg.api.authentication.saf-pe.cobiscloud.com',
+  HEADERS: {
+    X_END_USER_TERMINAL: '186.28.75.10',
+    X_API_KEY: 'swGwRN7X65XLuBqFFsthpwxMjhXjxL9CrUmvtW80',
+    X_END_USER_LOGIN: 'jlopez',
+    X_END_USER_REQUEST_DATE_TIME: '2021-04-26T23:00:27Z'
+  }
+
 };
 
 /*

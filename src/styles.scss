@@ -1,1 +1,92 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.input {
+  border-radius: 5px;
+  display: grid;
+  background-color: #ffffff;
+  border: 2px solid #bfd6e0;
+  padding: 5px 15px;
+  height: 65px;
+  position: relative;
+
+  .label {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    color: rgba($color: #000000, $alpha: 0.5);
+  }
+
+  input {
+    width: 100%;
+    outline: none;
+    &:focus ~ .label,
+    &:valid ~ .label {
+      transform: translateY(-30px);
+      font-size: 13px;
+      color: rgba($color: #000000, $alpha: 1);
+    }
+  }
+}
+
+.input-icon {
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  border: 2px solid #bfd6e0;
+  padding: 5px 15px;
+  height: 65px;
+  gap: 5px;
+  position: relative;
+
+  .label {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    color: rgba($color: #000000, $alpha: 0.5);
+  }
+
+  .input-subcontainer {
+    width: 100%;
+  }
+
+  input {
+    width: 100%;
+    outline: none;
+    &:focus ~ .label,
+    &:valid ~ .label {
+      transform: translateY(-30px);
+      font-size: 13px;
+      color: rgba($color: #000000, $alpha: 1);
+    }
+  }
+  .eyeIconContainer {
+    width: 25px;
+    cursor: pointer;
+  }
+}
+
+.loading-animation {
+  width: 30px;
+  height: 30px;
+  animation: loading 0.8s linear infinite;
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,80 @@
+<div class="w-full h-screen bg-primary flex justify-center items-center">
+  <form class="grid justify-center gap-5 w-11/12" [formGroup]="formChoose">
+    <h1 class="text-center text-3xl font-bold">Iniciar sesión</h1>
+    <p class="text-xl text-center">
+      Selecciona tu rol en Surgir y la oficina a la que perteneces
+    </p>
+    <div class="grid gap-5 mt-8 justify-self-center w-full cursor-pointer">
+      <div #inputRole class="input-icon" (click)="openSelectRoleMethod()">
+        <div class="input-subcontainer">
+          <input
+            type="text"
+            required
+            class="cursor-pointer"
+            autocomplete="off"
+            formControlName="role"
+            (input)="handleChange('role')"
+          />
+          <label class="label cursor-pointer">Rol</label>
+        </div>
+        <app-arrow-icon class="stroke-current text-red-500"></app-arrow-icon>
+        <ul
+          class="absolute top-full transition-all left-0 w-full bg-white shadow-md z-10 cursor-pointer rounded-md"
+          [ngClass]="
+            openSelectRole
+              ? 'visible opacity-100 -translate-y-0'
+              : 'invisible opacity-0 -translate-y-6'
+          "
+        >
+          <li
+            *ngFor="let role of roles"
+            class="py-4 px-3 hover:bg-gray-100 transition-all"
+            (click)="selectRole(role)"
+          >
+            {{ role.name }}
+          </li>
+        </ul>
+      </div>
+      <div class="input-icon" #inputAgency (click)="openSelectAgencyMethod()">
+        <div class="input-subcontainer">
+          <input
+            type="text"
+            required
+            formControlName="agency"
+            (input)="handleChange('agency')"
+          />
+          <label class="label">Agencia</label>
+        </div>
+        <app-arrow-icon class="stroke-current text-red-500"></app-arrow-icon>
+        <ul
+          class="absolute top-full transition-all left-0 w-full bg-white shadow-md z-10 cursor-pointer rounded-md"
+          [ngClass]="
+            openSelectAgency
+              ? 'visible opacity-100 -translate-y-0'
+              : 'invisible opacity-0 -translate-y-6'
+          "
+        >
+          <li
+            *ngFor="let branch of branches"
+            class="py-4 px-3 hover:bg-gray-100 transition-all"
+            (click)="selectAgency(branch)"
+          >
+            {{ branch.name }}
+          </li>
+        </ul>
+      </div>
+      <button
+        type="submit"
+        class="py-4 rounded-full text-white font-bold text-md"
+        [disabled]="formChoose.valid ? false : true"
+        [ngClass]="
+          formChoose.valid
+            ? 'bg-red-600 hover:bg-red-700 transition-all hover:shadow-md cursor-pointer'
+            : 'bg-gray-300 cursor-default'
+        "
+      >
+        Ingresar
+      </button>
+    </div>
+  </form>
+</div>

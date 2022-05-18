@@ -1,0 +1,82 @@
+<div
+  class="overflow-hidden h-screen bg-primary flex justify-center items-center"
+>
+  <div class="grid justify-center gap-5 w-10/12 lg:w-2/4">
+    <h1 class="text-center text-3xl font-bold">Iniciar Sesion</h1>
+    <h2 class="text-center text-xl">
+      Identificate con tu usuario y contraseña
+    </h2>
+    <form
+      [formGroup]="formLogin"
+      (ngSubmit)="loginUser(formLogin.value)"
+      class="grid gap-5"
+    >
+      <div class="grid gap-3">
+        <div class="input">
+          <input
+            type="text"
+            id="username"
+            autocomplete="off"
+            class="w-full"
+            required
+            formControlName="username"
+          />
+          <label for="username" class="label cursor-text">Usuario</label>
+        </div>
+        <p *ngIf="usernameReq" class="text-red-600 font-bold">
+          Usuario es requerido
+        </p>
+      </div>
+      <div class="grid gap-3">
+        <div class="input-icon">
+          <div class="input-subcontainer">
+            <input
+              [type]="!showPass ? 'text' : 'password'"
+              id="password"
+              autocomplete="off"
+              formControlName="password"
+              required
+            />
+            <label class="label cursor-text" for="password">Contraseña</label>
+          </div>
+          <div class="eyeIconContainer" (click)="showPassMethod()">
+            <app-eye *ngIf="showPass"></app-eye>
+            <app-no-eye *ngIf="!showPass"></app-no-eye>
+          </div>
+        </div>
+        <p *ngIf="passReq" class="text-red-600 font-bold">
+          La contrasena es requerida
+        </p>
+      </div>
+      <div
+        class="flex gap-3 items-center cursor-pointer"
+        (click)="rememberUserMethod()"
+      >
+        <input type="checkbox" hidden />
+        <div class="bg-white w-7 h-7 border-red-600 border-2 rounded-sm">
+          <app-check *ngIf="rememberUser"></app-check>
+        </div>
+        <label class="font-bold cursor-pointer">Recordar Usuario</label>
+      </div>
+      <button
+        type="submit"
+        class="py-4 text-white rounded-full font-bold text-lg transition-all flex gap-3 justify-center items-center"
+        [ngClass]="
+          formLogin.valid
+            ? 'bg-red-600 hover:bg-red-800 hover:shadow-md'
+            : 'bg-gray-300'
+        "
+        [disabled]="!formLogin.valid"
+      >
+        <div *ngIf="loading" class="fill-current text-white loading-animation">
+          <app-loading></app-loading>
+        </div>
+        Ingresar
+      </button>
+      <a href="" class="text-center underline text-link font-bold text-lg"
+        >Olvidé mi contraseña</a
+      >
+    </form>
+  </div>
+</div>
+<app-alert-message></app-alert-message>
