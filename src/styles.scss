@@ -82,6 +82,14 @@
   animation: loading 0.8s linear infinite;
 }
 
+.hidden-controls {
+  -moz-appearance: textfield;
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+}
+
 @keyframes loading {
   from {
     transform: rotate(0deg);

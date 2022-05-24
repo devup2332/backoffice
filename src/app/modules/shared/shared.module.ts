@@ -10,6 +10,7 @@ import { SigninService } from './services/signin.service';
 import { LoadingComponent } from './components/icons/loading/loading.component';
 import { AlertMessageComponent } from './components/alert-message/alert-message.component';
 import { CloseIconComponent } from './components/icons/close-icon/close-icon.component';
+import { ExitComponent } from './components/icons/exit/exit.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { CloseIconComponent } from './components/icons/close-icon/close-icon.com
     LoadingComponent,
     AlertMessageComponent,
     CloseIconComponent,
+    ExitComponent,
   ],
   imports: [CommonModule, HttpClientModule],
   exports: [
@@ -31,6 +33,7 @@ import { CloseIconComponent } from './components/icons/close-icon/close-icon.com
     LoadingComponent,
     AlertMessageComponent,
     CloseIconComponent,
+    ExitComponent,
   ],
   providers: [
     SigninService,

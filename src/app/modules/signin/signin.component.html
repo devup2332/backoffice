@@ -1,7 +1,7 @@
 <div
   class="overflow-hidden h-screen bg-primary flex justify-center items-center"
 >
-  <div class="grid justify-center gap-5 w-10/12 lg:w-2/4">
+  <div class="grid justify-center gap-5 w-10/12 lg:w-2/4 max-w-sm">
     <h1 class="text-center text-3xl font-bold">Iniciar Sesion</h1>
     <h2 class="text-center text-xl">
       Identificate con tu usuario y contraseña
@@ -47,6 +47,9 @@
         <p *ngIf="passReq" class="text-red-600 font-bold">
           La contrasena es requerida
         </p>
+        <p *ngIf="alertMessageState.value" class="text-red-600 font-medium">
+          {{ alertMessageState.message }}
+        </p>
       </div>
       <div
         class="flex gap-3 items-center cursor-pointer"
@@ -73,7 +76,7 @@
         </div>
         Ingresar
       </button>
-      <a href="" class="text-center underline text-link font-bold text-lg"
+      <a [routerLink]="['/signin/forgotpass']" class="text-center underline text-link font-bold text-lg"
         >Olvidé mi contraseña</a
       >
     </form>

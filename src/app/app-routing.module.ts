@@ -8,7 +8,19 @@ const routes: Routes = [
       import('./modules/signin/signin.module').then((m) => m.SigninModule),
   },
   {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('./modules/dashboard/dashboard.module').then(
+        (m) => m.DashboardModule
+      ),
+  },
+  {
     path: '',
+    redirectTo: 'signin',
+    pathMatch: 'full',
+  },
+  {
+    path: '**',
     redirectTo: 'signin',
     pathMatch: 'full',
   },

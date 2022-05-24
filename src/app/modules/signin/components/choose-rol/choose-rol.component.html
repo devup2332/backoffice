@@ -1,5 +1,9 @@
 <div class="w-full h-screen bg-primary flex justify-center items-center">
-  <form class="grid justify-center gap-5 w-11/12" [formGroup]="formChoose">
+  <form
+    class="grid justify-center gap-5 w-11/12 max-w-sm"
+    [formGroup]="formChoose"
+    (ngSubmit)="goToDashboard()"
+  >
     <h1 class="text-center text-3xl font-bold">Iniciar sesión</h1>
     <p class="text-xl text-center">
       Selecciona tu rol en Surgir y la oficina a la que perteneces
@@ -65,7 +69,7 @@
       </div>
       <button
         type="submit"
-        class="py-4 rounded-full text-white font-bold text-md"
+        class="py-4 rounded-full text-white font-bold text-md flex justify-center gap-5"
         [disabled]="formChoose.valid ? false : true"
         [ngClass]="
           formChoose.valid
@@ -73,8 +77,20 @@
             : 'bg-gray-300 cursor-default'
         "
       >
+        <div *ngIf="loading" class="loading-animation text-white fill-current">
+          <app-loading></app-loading>
+        </div>
         Ingresar
       </button>
     </div>
+
+    <a
+      (click)="changeUser()"
+      class="cursor-pointer text-center text-sky-600 font-bold decoration-solid underline flex w-full justify-center gap-3"
+    >
+      <app-exit class="text-sky-600 fill-current"></app-exit>
+      Cambiar de usuario
+    </a>
   </form>
 </div>
+<app-alert-message></app-alert-message>

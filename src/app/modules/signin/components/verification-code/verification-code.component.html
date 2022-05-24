@@ -1,0 +1,58 @@
+<div class="w-full h-screen flex justify-center items-center bg-primary">
+  <form
+    [formGroup]="verificationCodeForm"
+    class="grid justify-center gap-5 w-11/12 max-w-sm"
+    (ngSubmit)="loginWithCode()"
+  >
+    <h1 class="text-center text-3xl font-bold">Codigo de Verificacion</h1>
+    <h2 class="text-base text-center">
+      Ingrese el codigo que llego a tu telefono para confirmar el logeo
+    </h2>
+    <div class="grid gap-3">
+      <div class="input">
+        <input
+          type="text"
+          id="code"
+          autocomplete="off"
+          class="w-full hidden-controls"
+          required
+          formControlName="code"
+        />
+        <label for="code" class="label cursor-text"
+          >Código de verificación</label
+        >
+      </div>
+      <p *ngIf="reqCode" class="text-red-600 font-bold">Ingrese su codigo</p>
+      <p *ngIf="onlyNumbersCode" class="text-red-600 font-bold">
+        El codigo solo debe contener numeros
+      </p>
+      <p *ngIf="maxLengthCode" class="text-red-600 font-bold">
+        El codigo debe ser maximo de 6 digitos
+      </p>
+    </div>
+    <button
+      type="submit"
+      class="py-4 rounded-full text-white font-bold text-md flex justify-center gap-5"
+      [disabled]="verificationCodeForm.valid ? false : true"
+      [ngClass]="
+        verificationCodeForm.valid
+          ? 'bg-red-600 hover:bg-red-700 transition-all hover:shadow-md cursor-pointer'
+          : 'bg-gray-300 cursor-default'
+      "
+    >
+      <div *ngIf="loading" class="loading-animation text-white fill-current">
+        <app-loading></app-loading>
+      </div>
+      Ingresar
+    </button>
+
+    <a
+      (click)="changeUser()"
+      class="cursor-pointer text-center text-sky-600 font-bold decoration-solid underline flex w-full justify-center gap-3"
+    >
+      <app-exit class="text-sky-600 fill-current"></app-exit>
+      Cambiar de usuario
+    </a>
+  </form>
+</div>
+<app-alert-message></app-alert-message>
