@@ -8,9 +8,10 @@ import { SigninRoutingModule } from './signin-routing.module';
 import { SigninComponent } from './signin.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { VerificationCodeComponent } from './components/verification-code/verification-code.component';
+import { ForgotPassCodeVerificationComponent } from './components/forgot-pass-code-verification/forgot-pass-code-verification.component';
 
 @NgModule({
-  declarations: [SigninComponent, ChooseRolComponent, ForgotPasswordComponent, VerificationCodeComponent],
+  declarations: [SigninComponent, ChooseRolComponent, ForgotPasswordComponent, VerificationCodeComponent, ForgotPassCodeVerificationComponent],
   imports: [
     CommonModule,
     SigninRoutingModule,

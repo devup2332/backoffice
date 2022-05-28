@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ChooseRolComponent } from './components/choose-rol/choose-rol.component';
+import { ForgotPassCodeVerificationComponent } from './components/forgot-pass-code-verification/forgot-pass-code-verification.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { VerificationCodeComponent } from './components/verification-code/verification-code.component';
 import { ChooseRoleGuard } from './guards/choose-role.guard';
@@ -25,6 +26,10 @@ const routes: Routes = [
   {
     path: 'forgotpass',
     component: ForgotPasswordComponent,
+  },
+  {
+    path: 'forgotpasscode',
+    component: ForgotPassCodeVerificationComponent,
   },
 ];
 

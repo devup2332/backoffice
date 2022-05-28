@@ -11,6 +11,7 @@ import { LoadingComponent } from './components/icons/loading/loading.component';
 import { AlertMessageComponent } from './components/alert-message/alert-message.component';
 import { CloseIconComponent } from './components/icons/close-icon/close-icon.component';
 import { ExitComponent } from './components/icons/exit/exit.component';
+import { IconInfoComponent } from './components/icons/icon-info/icon-info.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ExitComponent } from './components/icons/exit/exit.component';
     AlertMessageComponent,
     CloseIconComponent,
     ExitComponent,
+    IconInfoComponent,
   ],
   imports: [CommonModule, HttpClientModule],
   exports: [
@@ -34,6 +36,7 @@ import { ExitComponent } from './components/icons/exit/exit.component';
     AlertMessageComponent,
     CloseIconComponent,
     ExitComponent,
+    IconInfoComponent
   ],
   providers: [
     SigninService,

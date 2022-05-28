@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 
 interface Credentials {
@@ -86,5 +87,29 @@ export class SigninService {
     this.roles = roles;
     this.branches = branches;
     this.mfaAuth = mfaAuth;
+  }
+
+  sendCodeFortgotPassword(login: string) {
+    const body = {
+      authentication: {
+        login,
+      },
+    };
+    return this.http.post(
+      `${environment.uriSignIn}/users/v1/auth/authentication/forgot-password`,
+      body
+    );
+  }
+
+  checkPasswordEqual(
+    controlName: string,
+    matchingControlName: string
+  ): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const pass1 = control.get(controlName)?.value;
+      const pass2 = control.get(matchingControlName)?.value;
+
+      return pass1 === pass2 ? null : { notEqual: true };
+    };
   }
 }
