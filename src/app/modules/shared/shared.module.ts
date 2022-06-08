@@ -12,6 +12,10 @@ import { AlertMessageComponent } from './components/alert-message/alert-message.
 import { CloseIconComponent } from './components/icons/close-icon/close-icon.component';
 import { ExitComponent } from './components/icons/exit/exit.component';
 import { IconInfoComponent } from './components/icons/icon-info/icon-info.component';
+import { MenuIconComponent } from './components/icons/menu-icon/menu-icon.component';
+import { SettingsIconComponent } from './components/icons/settings-icon/settings-icon.component';
+import { HomeIconComponent } from './components/icons/home-icon/home-icon.component';
+import { LogoutIconComponent } from './components/icons/logout-icon/logout-icon.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +29,10 @@ import { IconInfoComponent } from './components/icons/icon-info/icon-info.compon
     CloseIconComponent,
     ExitComponent,
     IconInfoComponent,
+    MenuIconComponent,
+    SettingsIconComponent,
+    HomeIconComponent,
+    LogoutIconComponent,
   ],
   imports: [CommonModule, HttpClientModule],
   exports: [
@@ -36,7 +44,11 @@ import { IconInfoComponent } from './components/icons/icon-info/icon-info.compon
     AlertMessageComponent,
     CloseIconComponent,
     ExitComponent,
-    IconInfoComponent
+    IconInfoComponent,
+    MenuIconComponent,
+    HomeIconComponent,
+    SettingsIconComponent,
+    LogoutIconComponent,
   ],
   providers: [
     SigninService,

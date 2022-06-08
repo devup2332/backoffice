@@ -1,1 +1,42 @@
-<p>dashboard works!</p>
+<div class="h-full">
+  <header class="w-full py-3 px-10 bg-red-600">
+    <button type="button" class="w-8 h-8 text-white fill-current">
+      <app-menu-icon></app-menu-icon>
+    </button>
+  </header>
+  <div class="bg-bg-primary shadow-md block h-full w-fit py-5">
+    <h1 class="text-2xl font-bold px-7">Ursula Gamarra</h1>
+    <h2 class="text-md font-semibold mt-5 px-7">ASISTENTE DE OPERACIONES</h2>
+    <h3 class="text-gray-500 px-7">MARISCAL CACERES</h3>
+
+    <ul class="mt-8">
+      <a
+        [routerLink]="['home']"
+        class="cursor-pointer sidebar-option flex gap-2 text-black fill-current stroke-current"
+      >
+        <div class="w-7 h-7">
+          <app-home-icon></app-home-icon>
+        </div>
+        <span>Home</span>
+      </a>
+      <a
+        [routerLink]="['settings']"
+        class="sidebar-option cursor-pointer flex gap-2 text-black fill-current stroke-current"
+      >
+        <div class="w-7 h-7">
+          <app-settings-icon></app-settings-icon>
+        </div>
+        <span>Configuración</span>
+      </a>
+      <li
+        class="last-option-sidebar cursor-pointer flex gap-2 sidebar-option text-black fill-current"
+        (click)="logOut()"
+      >
+        <div class="w-7 h-7">
+          <app-logout-icon></app-logout-icon>
+        </div>
+        <span>Cerrar sesión</span>
+      </li>
+    </ul>
+  </div>
+</div>

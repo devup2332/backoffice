@@ -66,6 +66,7 @@ export class ChooseRolComponent implements OnInit {
           res.authenticationResult;
         localStorage.removeItem('SESSION_SANTANDER');
         localStorage.removeItem('SESSION_DATA_SANTANDER');
+        localStorage.removeItem('SANTANDER_FORGOTPASS_DATA');
         localStorage.setItem(
           'SANTANDER_TOKEN',
           JSON.stringify({ accessToken, refreshToken, authorization })

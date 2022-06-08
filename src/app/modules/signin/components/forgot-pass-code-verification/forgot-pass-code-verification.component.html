@@ -1,1 +1,47 @@
-<p>forgot-pass-code-verification works!</p>
+<div class="h-screen bg-primary flex justify-center items-center">
+  <form
+    [formGroup]="form"
+    class="grid gap-5 w-10/12 lg:w-2/4 max-w-md"
+    (ngSubmit)="changePass()"
+  >
+    <h1 class="text-3xl font-bold text-center">¿Olvidaste tu contraseña?</h1>
+    <h2 class="text-base text-center">
+      Ingresa el código que llegó a tu teléfono para confirmar la creación
+    </h2>
+
+    <div class="grid gap-3">
+      <div class="input">
+        <input
+          type="text"
+          id="code"
+          autofocus
+          autocomplete="off"
+          class="w-full hidden-controls"
+          required
+          formControlName="code"
+        />
+        <label for="code" class="label cursor-text"
+          >Código de verificación</label
+        >
+      </div>
+      <p *ngIf="reqCode" class="text-red-600 font-bold">Ingrese su codigo</p>
+      <p *ngIf="onlyNumbersCode" class="text-red-600 font-bold">
+        El codigo solo debe contener numeros
+      </p>
+      <p *ngIf="maxLengthCode" class="text-red-600 font-bold">
+        El codigo debe ser maximo de 6 digitos
+      </p>
+    </div>
+
+    <button
+      type="submit"
+      class="py-4 text-white rounded-full font-bold text-lg transition-all flex gap-3 justify-center items-center bg-red-600"
+    >
+      <div *ngIf="loading" class="loading-animation text-white fill-current">
+        <app-loading></app-loading>
+      </div>
+      Confirmar creación
+    </button>
+  </form>
+</div>
+<app-alert-message></app-alert-message>

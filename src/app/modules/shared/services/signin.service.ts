@@ -72,8 +72,6 @@ export class SigninService {
       },
     };
 
-    console.log({ body });
-
     return this.http.post(
       `${this.uri}/users/v1/auth/authentication/role-selection`,
       body
@@ -97,6 +95,21 @@ export class SigninService {
     };
     return this.http.post(
       `${environment.uriSignIn}/users/v1/auth/authentication/forgot-password`,
+      body
+    );
+  }
+
+  changePassword({ login, code, password }: any) {
+    const body = {
+      authentication: {
+        login,
+      },
+      newPassword: password,
+      verificationCode: code,
+    };
+    console.log({ body });
+    return this.http.patch(
+      `${environment.uriSignIn}/users/v1/auth/authentication/confirm-change-password`,
       body
     );
   }

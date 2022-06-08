@@ -49,7 +49,9 @@ export class SigninComponent implements OnInit {
       return Object.values(this.formLogin.controls).forEach((c) =>
         c.markAsTouched()
       );
-    const credentials = { login: value.username, password: value.password };
+
+    const { username, password } = this.formLogin.value;
+    const credentials = { login: username, password: password };
     this._signinService.authenticateUser(credentials).subscribe({
       next: (res: any) => {
         const { session, nextChallenge } = res;
@@ -66,7 +68,7 @@ export class SigninComponent implements OnInit {
         localStorage.setItem('SESSION_SANTANDER', session);
         localStorage.setItem(
           'SESSION_DATA_SANTANDER',
-          JSON.stringify({ roles, branches })
+          JSON.stringify({ roles, branches, login: username })
         );
         this._signinService.branches = branches;
         this._signinService.roles = roles;
