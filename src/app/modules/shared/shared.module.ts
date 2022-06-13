@@ -16,6 +16,8 @@ import { MenuIconComponent } from './components/icons/menu-icon/menu-icon.compon
 import { SettingsIconComponent } from './components/icons/settings-icon/settings-icon.component';
 import { HomeIconComponent } from './components/icons/home-icon/home-icon.component';
 import { LogoutIconComponent } from './components/icons/logout-icon/logout-icon.component';
+import { UsersIconComponent } from './components/icons/users-icon/users-icon.component';
+import { ExpandIconComponent } from './components/icons/expand-icon/expand-icon.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { LogoutIconComponent } from './components/icons/logout-icon/logout-icon.
     SettingsIconComponent,
     HomeIconComponent,
     LogoutIconComponent,
+    UsersIconComponent,
+    ExpandIconComponent,
   ],
   imports: [CommonModule, HttpClientModule],
   exports: [
@@ -49,6 +53,8 @@ import { LogoutIconComponent } from './components/icons/logout-icon/logout-icon.
     HomeIconComponent,
     SettingsIconComponent,
     LogoutIconComponent,
+    ExpandIconComponent,
+    UsersIconComponent,
   ],
   providers: [
     SigninService,

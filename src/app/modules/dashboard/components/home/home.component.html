@@ -1,0 +1,98 @@
+<div class="h-full">
+  <div class="grid divide-x border-b-border2 border-2 grid-cols-3 relative">
+    <div
+      *ngFor="let tab of tabs; let i = index"
+      class="relative block w-full text-center cursor-pointer py-3"
+    >
+      <div
+        class="bg-red-600 w-full h-1 absolute bottom-0 left-0"
+        *ngIf="tab.select"
+      ></div>
+      {{ tab.label }}
+    </div>
+  </div>
+  <div class="bg-bg-primary p-8 h-full">
+    <header class="flex justify-between">
+      <div class="input-icon">
+        <input type="text" placeholder="Ordenar por" />
+        <div class="text-red-600 stroke-current w-5 h-5">
+          <app-arrow-icon></app-arrow-icon>
+        </div>
+      </div>
+      <div class="flex text-gray-400 gap-8 items-center">
+        <button type="button" class="flex items-center gap-2">
+          <div class="stroke-current rotate-90">
+            <app-arrow-icon></app-arrow-icon>
+          </div>
+          <span>Anterior</span>
+        </button>
+        <ul class="flex gap-5">
+          <li
+            *ngFor="let ind of indices"
+            class="cursor-pointer rounded-full flex justify-center items-center w-10 h-10"
+            [ngClass]="ind.select ? 'bg-bg2' : ''"
+          >
+            {{ ind.label }}
+          </li>
+        </ul>
+        <button type="button" class="flex items-center gap-2">
+          <span>Siguiente</span>
+          <div class="stroke-current -rotate-90">
+            <app-arrow-icon></app-arrow-icon>
+          </div>
+        </button>
+      </div>
+    </header>
+    <div class="mt-10 max-h-600 overflow-y-scroll custom-scroll pr-10">
+      <div class="w-full h-full grid grid-cols-5 gap-8">
+        <div
+          *ngFor="let group of groups"
+          class="relative grid gap-3 bg-white p-5 rounded-md border-2 border-border"
+        >
+          <button
+            type="button"
+            class="absolute right-3 top-3 w-6 h-6 text-black fill-current"
+          >
+            <app-expand-icon></app-expand-icon>
+          </button>
+          <div class="flex gap-4 text-black stroke-current">
+            <app-users-icon class="w-5 h-5"></app-users-icon>
+            <p>{{ group.members }} miembros</p>
+          </div>
+          <h2 class="font-bold text-xl">{{ group.title }}</h2>
+          <div>
+            <p>Monto Grupal</p>
+            <p class="text-2xl font-bold">S/ {{ group.totalMount }}</p>
+          </div>
+          <div>
+            <p>Asesor</p>
+            <p class="font-bold text-md">{{ group.asesor }}</p>
+          </div>
+          <div class="flex justify-between">
+            <div>
+              <p>Agencia</p>
+              <p class="font-bold text-md">{{ group.agency }}</p>
+            </div>
+            <div>
+              <p>Devoluciones</p>
+              <p class="font-bold text-md">{{ group.devolutions }}</p>
+            </div>
+          </div>
+          <div>
+            <p>Fecha de envio</p>
+            <p class="font-bold text-md">{{ group.sendDate }}</p>
+          </div>
+
+          <span class="bg-blue-100 text-blue-700 w-fit px-5 py-1 rounded-md">Revision</span>
+
+          <button
+            type="button"
+            class="bg-red-600 w-full py-3 rounded-full text-white font-bold text-xl"
+          >
+            Revisar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
